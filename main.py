@@ -10,10 +10,8 @@ def main():
     xml_item = root.findall('channel/item/description')
     words = []
     for item in xml_item:
-        word = [word for word in item.text.split() if len(word) > 6]
-        words.extend(word)
-    top = Counter(words)
-    pprint(top.most_common(10))
+        words.extend([word for word in item.text.split() if len(word) > 6])
+    pprint(Counter(words).most_common(10))
 
 
 if __name__ == '__main__':
